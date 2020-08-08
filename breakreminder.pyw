@@ -12,7 +12,7 @@ while True:
         tk.withdraw()
         tk.wm_attributes("-topmost", 1) 
         tk.focus()
-        tkinter.messagebox.showerror('5 dk mola aq', "Break Time")
+        tkinter.messagebox.showerror('5 dk mola', "Break Time")
         nextBreak = (datetime.datetime.now().minute + 15) % 60
         tk.quit()
 
