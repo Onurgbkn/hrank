@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(15000)
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -6,9 +9,9 @@ class Node:
 
 class BinaryTree:
 
-
     def __init__(self, indexes):
         self.root = Node(1)
+        self.deps = []
 
         nodestack = [self.root]
 
@@ -24,31 +27,50 @@ class BinaryTree:
             nodestack.pop(0)
 
 
-    def swapnodes(self):
-        # TO DO
-        pass
+    def swapnodes(self, swapdeps):
+        for i in swapdeps:
+            self.deps = []
+            self.Depthnodes(self.root, 1, i)
+            for i in self.deps:
+                #print(i.data)
+                i.left, i.right = i.right, i.left
+            self.Inorderprint(self.root)
+            print('')
 
 
-    def Printree(self):
-        print(self.root.data)
-        print(self.root.left.data)
-        print(self.root.left.left.data)
-        print(self.root.left.left.left.data)
+    def Depthnodes(self, root, curDepth, sDepth):
+        if sDepth == curDepth or curDepth % sDepth == 0:
+            self.deps.append(root)
+
+        if root.left != None:
+            self.Depthnodes(root.left, curDepth+1, sDepth)
+        if root.right != None:
+            self.Depthnodes(root.right, curDepth+1, sDepth)
 
 
     def Inorderprint(self, temproot):
-        itr = temproot
-        if itr.left != None:
-            self.Inorderprint(itr.left)
+        if temproot.left != None:
+            self.Inorderprint(temproot.left)
 
-        print(itr.data)
+        print(temproot.data, end=" ")
 
-        if itr.right != None:
-            self.Inorderprint(itr.right)
-
+        if temproot.right != None:
+            self.Inorderprint(temproot.right)
 
 
+if __name__ == '__main__':
 
-tre = BinaryTree([[2, 3], [4, -1], [5, -1], [6, -1], [7, 8], [-1, 9], [-1, -1], [10, 11], [-1, -1], [-1, -1], [-1, -1]])
+    tree = []
+    depths = []
 
-tre.Inorderprint(tre.root)
+    f = open(r'C:\Users\lma10ur\Desktop\input\input03.txt')
+
+    for _ in range(int(f.readline())):
+        tree.append(list(map(int, f.readline().split())))
+
+    for _ in range(int(f.readline())):
+        depths.append(int(f.readline()))
+
+
+    BT = BinaryTree(tree)
+    BT.swapnodes(depths)
