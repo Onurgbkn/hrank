@@ -4,7 +4,7 @@ import datetime
 import time
 
 
-nextBreak = (datetime.datetime.now().minute + 15) % 60
+nextBreak = (datetime.datetime.now().minute + 20) % 60
 
 while True:
     if datetime.datetime.now().minute == nextBreak:
@@ -12,8 +12,12 @@ while True:
         tk.withdraw()
         tk.wm_attributes("-topmost", 1) 
         tk.focus()
-        tkinter.messagebox.showerror('5 dk mola', "Break Time")
-        nextBreak = (datetime.datetime.now().minute + 15) % 60
+        MsgBox = tkinter.messagebox.askquestion('5 dk mola', "Break Time")
+        if MsgBox == 'yes':
+            nextBreak = (datetime.datetime.now().minute + 20) % 60
+        else:
+            nextBreak = (datetime.datetime.now().minute + 120) % 60
+
         tk.quit()
 
     time.sleep(1)
