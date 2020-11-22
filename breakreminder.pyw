@@ -16,7 +16,7 @@ while True:
         if MsgBox == 'yes':
             nextBreak = (datetime.datetime.now().minute + 20) % 60
         else:
-            nextBreak = (datetime.datetime.now().minute + 120) % 60
+            break
 
         tk.quit()
 
