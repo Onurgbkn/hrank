@@ -4,7 +4,7 @@ import  random
 def Generate(n):
 
     for _ in range(int(n)):
-        yield random.randint(-10000, 10000)
+        yield random.randint(-100, 100)
 
 
 s = " ".join(map(str, (Generate(1000))))
