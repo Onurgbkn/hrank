@@ -74,3 +74,6 @@ if __name__ == '__main__':
 
     BT = BinaryTree(tree)
     BT.swapnodes(depths)
+
+
+# print(round((((1+(5**0.5))/2)**int(input()))/(5**0.5)))
