@@ -1,7 +1,4 @@
-arr1 = list(map(int, "3 7 4 6 5".split()))      #13
-arr2 = list(map(int, "2 1 5 8 4".split()))      #11
-arr3 = list(map(int, "3 5 -7 8 10".split()))    #15
-arr4 = list(map(int, "5 -1 -1 3 -2 5".split()))    #15
+# https://www.hackerrank.com/challenges/max-array-sum/problem
 
 ar = [65, 74, 63, 72, 24, -32, 23, -7, -82, 62]
 
