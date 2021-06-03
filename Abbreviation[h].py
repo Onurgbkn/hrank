@@ -1,3 +1,5 @@
+# https://www.hackerrank.com/challenges/abbr/problem
+
 f = open('C:/Users/lma10ur/Desktop/input/input12.txt', 'r')
 
 
